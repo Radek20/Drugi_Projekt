@@ -45,6 +45,8 @@ void test()
 
 bool test_1()
 {
+    /* TEST LICZB CALKOWITYCH */
+
     Tensor<int> A(2,2,2);  /* tensor testowy */
     Tensor<int> B(2,2,2);  /* tensor testowy */
     Tensor<int> C(2,2,2);  /* pomocniczy tensor testowy */
@@ -59,7 +61,7 @@ bool test_1()
     /* elementy drugiego tensora */
     int element_1_2=1, element_2_2=4, element_3_2=3, element_4_2=6;
     int element_5_2=2, element_6_2=10, element_7_2=1, element_8_2=9;
-
+    /* WPISYWANIE WARTOSCI TENSORA A */
     A.change(element_1_1 ,1,1,1);
     A.change(element_2_1 ,1,1,2);
     A.change(element_3_1 ,1,2,1);
@@ -68,7 +70,7 @@ bool test_1()
     A.change(element_6_1 ,2,1,2);
     A.change(element_7_1 ,2,2,1);
     A.change(element_8_1 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA B */
     B.change(element_1_2 ,1,1,1);
     B.change(element_2_2 ,1,1,2);
     B.change(element_3_2 ,1,2,1);
@@ -77,7 +79,7 @@ bool test_1()
     B.change(element_6_2 ,2,1,2);
     B.change(element_7_2 ,2,2,1);
     B.change(element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM DODAWANIA */
     Wynik_dod.change(element_1_1+element_1_2 ,1,1,1);
     Wynik_dod.change(element_2_1+element_2_2 ,1,1,2);
     Wynik_dod.change(element_3_1+element_3_2 ,1,2,1);
@@ -86,7 +88,7 @@ bool test_1()
     Wynik_dod.change(element_6_1+element_6_2 ,2,1,2);
     Wynik_dod.change(element_7_1+element_7_2 ,2,2,1);
     Wynik_dod.change(element_8_1+element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM ODEJMOWANIA */
     Wynik_ode.change(element_1_1-element_1_2 ,1,1,1);
     Wynik_ode.change(element_2_1-element_2_2 ,1,1,2);
     Wynik_ode.change(element_3_1-element_3_2 ,1,2,1);
@@ -95,7 +97,7 @@ bool test_1()
     Wynik_ode.change(element_6_1-element_6_2 ,2,1,2);
     Wynik_ode.change(element_7_1-element_7_2 ,2,2,1);
     Wynik_ode.change(element_8_1-element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM MNOZENIA */
     Wynik_mn.change(element_1_1*element_1_2 ,1,1,1);
     Wynik_mn.change(element_2_1*element_2_2 ,1,1,2);
     Wynik_mn.change(element_3_1*element_3_2 ,1,2,1);
@@ -134,6 +136,8 @@ bool test_1()
 
 bool test_2()
 {
+    /* TEST LICZB RZECZYWISTYCH */
+
     Tensor<double> A(2,2,2);  /* tensor testowy */
     Tensor<double> B(2,2,2);  /* tensor testowy */
     Tensor<double> C(2,2,2);  /* pomocniczy tensor testowy */
@@ -148,7 +152,7 @@ bool test_2()
     /* elementy drugiego tensora */
     double element_1_2=1.5, element_2_2=4.6, element_3_2=3, element_4_2=6;
     double element_5_2=2.12, element_6_2=10, element_7_2=1.001, element_8_2=9.9;
-
+    /* WPISYWANIE WARTOSCI TENSORA A */
     A.change(element_1_1 ,1,1,1);
     A.change(element_2_1 ,1,1,2);
     A.change(element_3_1 ,1,2,1);
@@ -157,7 +161,7 @@ bool test_2()
     A.change(element_6_1 ,2,1,2);
     A.change(element_7_1 ,2,2,1);
     A.change(element_8_1 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA B */
     B.change(element_1_2 ,1,1,1);
     B.change(element_2_2 ,1,1,2);
     B.change(element_3_2 ,1,2,1);
@@ -166,7 +170,7 @@ bool test_2()
     B.change(element_6_2 ,2,1,2);
     B.change(element_7_2 ,2,2,1);
     B.change(element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM DODAWANIA */
     Wynik_dod.change(element_1_1+element_1_2 ,1,1,1);
     Wynik_dod.change(element_2_1+element_2_2 ,1,1,2);
     Wynik_dod.change(element_3_1+element_3_2 ,1,2,1);
@@ -175,7 +179,7 @@ bool test_2()
     Wynik_dod.change(element_6_1+element_6_2 ,2,1,2);
     Wynik_dod.change(element_7_1+element_7_2 ,2,2,1);
     Wynik_dod.change(element_8_1+element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM ODEJMOWANIA */
     Wynik_ode.change(element_1_1-element_1_2 ,1,1,1);
     Wynik_ode.change(element_2_1-element_2_2 ,1,1,2);
     Wynik_ode.change(element_3_1-element_3_2 ,1,2,1);
@@ -184,7 +188,7 @@ bool test_2()
     Wynik_ode.change(element_6_1-element_6_2 ,2,1,2);
     Wynik_ode.change(element_7_1-element_7_2 ,2,2,1);
     Wynik_ode.change(element_8_1-element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM MNOZENIA */
     Wynik_mn.change(element_1_1*element_1_2 ,1,1,1);
     Wynik_mn.change(element_2_1*element_2_2 ,1,1,2);
     Wynik_mn.change(element_3_1*element_3_2 ,1,2,1);
@@ -223,6 +227,7 @@ bool test_2()
 
 bool test_3()
 {
+    /* TEST LICZB ZESPOLONYCH */
 
     Tensor< complex<int> > A(2,2,2);  /* tensor testowy */
     Tensor< complex<int> > B(2,2,2);  /* tensor testowy */
@@ -238,7 +243,7 @@ bool test_3()
     /* elementy drugiego tensora */
     complex<int> element_1_2=(7,4), element_2_2=(-2,-1), element_3_2=(5,1), element_4_2=(1,2);
     complex<int> element_5_2=(0,0), element_6_2=(1,0), element_7_2=(0,1), element_8_2=(0,0);
-
+    /* WPISYWANIE WARTOSCI TENSORA A */
     A.change(element_1_1 ,1,1,1);
     A.change(element_2_1 ,1,1,2);
     A.change(element_3_1 ,1,2,1);
@@ -247,7 +252,7 @@ bool test_3()
     A.change(element_6_1 ,2,1,2);
     A.change(element_7_1 ,2,2,1);
     A.change(element_8_1 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA B */
     B.change(element_1_2 ,1,1,1);
     B.change(element_2_2 ,1,1,2);
     B.change(element_3_2 ,1,2,1);
@@ -256,7 +261,7 @@ bool test_3()
     B.change(element_6_2 ,2,1,2);
     B.change(element_7_2 ,2,2,1);
     B.change(element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM DODAWANIA */
     Wynik_dod.change(element_1_1+element_1_2 ,1,1,1);
     Wynik_dod.change(element_2_1+element_2_2 ,1,1,2);
     Wynik_dod.change(element_3_1+element_3_2 ,1,2,1);
@@ -265,7 +270,7 @@ bool test_3()
     Wynik_dod.change(element_6_1+element_6_2 ,2,1,2);
     Wynik_dod.change(element_7_1+element_7_2 ,2,2,1);
     Wynik_dod.change(element_8_1+element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM ODEJMOWANIA */
     Wynik_ode.change(element_1_1-element_1_2 ,1,1,1);
     Wynik_ode.change(element_2_1-element_2_2 ,1,1,2);
     Wynik_ode.change(element_3_1-element_3_2 ,1,2,1);
@@ -274,7 +279,7 @@ bool test_3()
     Wynik_ode.change(element_6_1-element_6_2 ,2,1,2);
     Wynik_ode.change(element_7_1-element_7_2 ,2,2,1);
     Wynik_ode.change(element_8_1-element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM MNOZENIA */
     Wynik_mn.change(element_1_1*element_1_2 ,1,1,1);
     Wynik_mn.change(element_2_1*element_2_2 ,1,1,2);
     Wynik_mn.change(element_3_1*element_3_2 ,1,2,1);
@@ -313,6 +318,8 @@ bool test_3()
 
 bool test_4()
 {
+    /* TEST LICZB CALKOWITYCH BEZ ZNAKU */
+
     Tensor<unsigned int> A(2,2,2);  /* tensor testowy */
     Tensor<unsigned int> B(2,2,2);  /* tensor testowy */
     Tensor<unsigned int> C(2,2,2);  /* pomocniczy tensor testowy */
@@ -327,7 +334,7 @@ bool test_4()
     /* elementy drugiego tensora */
     unsigned int element_1_2=1, element_2_2=3, element_3_2=1, element_4_2=6;
     unsigned int element_5_2=8, element_6_2=11, element_7_2=1, element_8_2=2;
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM A */
     A.change(element_1_1 ,1,1,1);
     A.change(element_2_1 ,1,1,2);
     A.change(element_3_1 ,1,2,1);
@@ -336,7 +343,7 @@ bool test_4()
     A.change(element_6_1 ,2,1,2);
     A.change(element_7_1 ,2,2,1);
     A.change(element_8_1 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA B */
     B.change(element_1_2 ,1,1,1);
     B.change(element_2_2 ,1,1,2);
     B.change(element_3_2 ,1,2,1);
@@ -345,7 +352,7 @@ bool test_4()
     B.change(element_6_2 ,2,1,2);
     B.change(element_7_2 ,2,2,1);
     B.change(element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM DODAWANIA */
     Wynik_dod.change(element_1_1+element_1_2 ,1,1,1);
     Wynik_dod.change(element_2_1+element_2_2 ,1,1,2);
     Wynik_dod.change(element_3_1+element_3_2 ,1,2,1);
@@ -354,7 +361,7 @@ bool test_4()
     Wynik_dod.change(element_6_1+element_6_2 ,2,1,2);
     Wynik_dod.change(element_7_1+element_7_2 ,2,2,1);
     Wynik_dod.change(element_8_1+element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM ODEJMOWANIA */
     Wynik_ode.change(element_1_1-element_1_2 ,1,1,1);
     Wynik_ode.change(element_2_1-element_2_2 ,1,1,2);
     Wynik_ode.change(element_3_1-element_3_2 ,1,2,1);
@@ -363,7 +370,7 @@ bool test_4()
     Wynik_ode.change(element_6_1-element_6_2 ,2,1,2);
     Wynik_ode.change(element_7_1-element_7_2 ,2,2,1);
     Wynik_ode.change(element_8_1-element_8_2 ,2,2,2);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM MNOZENIA */
     Wynik_mn.change(element_1_1*element_1_2 ,1,1,1);
     Wynik_mn.change(element_2_1*element_2_2 ,1,1,2);
     Wynik_mn.change(element_3_1*element_3_2 ,1,2,1);
@@ -403,6 +410,7 @@ bool test_4()
 
 bool test_5()
 {
+    /* TEST *= I INNYCH DZIALAN */
     Tensor<int> A(3,1,1);  /* tensor testowy */
     Tensor<int> B(3,1,1);  /* tensor testowy */
     Tensor<int> C(3,1,1);  /* pomocniczy tensor testowy */
@@ -415,23 +423,23 @@ bool test_5()
     int element_1_1=3, element_2_1=4, element_3_1=3;
     /* elementy drugiego tensora */
     int element_1_2=1, element_2_2=8, element_3_2=0;
-
+    /* WPISYWANIE WARTOSCI TENSORA A */
     A.change(element_1_1 ,1,1,1);
     A.change(element_2_1 ,2,1,1);
     A.change(element_3_1 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA B */
     B.change(element_1_2 ,1,1,1);
     B.change(element_2_2 ,2,1,1);
     B.change(element_3_2 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM DODAWANIA */
     Wynik_dod.change(element_1_1+element_1_2 ,1,1,1);
     Wynik_dod.change(element_2_1+element_2_2 ,2,1,1);
     Wynik_dod.change(element_3_1+element_3_2 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM ODEJMOWANIA */
     Wynik_ode.change(element_1_1-element_1_2 ,1,1,1);
     Wynik_ode.change(element_2_1-element_2_2 ,2,1,1);
     Wynik_ode.change(element_3_1-element_3_2 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM MNOZENIA */
     Wynik_mn.change(element_1_1*element_1_2 ,1,1,1);
     Wynik_mn.change(element_2_1*element_2_2 ,2,1,1);
     Wynik_mn.change(element_3_1*element_3_2 ,3,1,1);
@@ -465,6 +473,8 @@ bool test_5()
 
 bool test_6()
 {
+    /* TEST -= I INNYCH DZIALAN */
+
     Tensor<int> A(3,1,1);  /* tensor testowy */
     Tensor<int> B(3,1,1);  /* tensor testowy */
     Tensor<int> C(3,1,1);  /* pomocniczy tensor testowy */
@@ -477,23 +487,23 @@ bool test_6()
     int element_1_1=2, element_2_1=0, element_3_1=3;
     /* elementy drugiego tensora */
     int element_1_2=2, element_2_2=5, element_3_2=0;
-
+    /* WPISYWANIE WARTOSCI TENSORA A */
     A.change(element_1_1 ,1,1,1);
     A.change(element_2_1 ,2,1,1);
     A.change(element_3_1 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA B */
     B.change(element_1_2 ,1,1,1);
     B.change(element_2_2 ,2,1,1);
     B.change(element_3_2 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM DODAWANIA */
     Wynik_dod.change(element_1_1+element_1_2 ,1,1,1);
     Wynik_dod.change(element_2_1+element_2_2 ,2,1,1);
     Wynik_dod.change(element_3_1+element_3_2 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM ODEJMOWANIA */
     Wynik_ode.change(element_1_1-element_1_2 ,1,1,1);
     Wynik_ode.change(element_2_1-element_2_2 ,2,1,1);
     Wynik_ode.change(element_3_1-element_3_2 ,3,1,1);
-
+    /* WPISYWANIE WARTOSCI TENSORA BEDACEGO WYNIKIEM MNOZENIA */
     Wynik_mn.change(element_1_1*element_1_2 ,1,1,1);
     Wynik_mn.change(element_2_1*element_2_2 ,2,1,1);
     Wynik_mn.change(element_3_1*element_3_2 ,3,1,1);
@@ -527,6 +537,8 @@ bool test_6()
 
 void example()
 {
+    /* TEST, PRZYKLAD WCZYTANIA I WYPISANIA TENSORA INTOW */
+
     cout<<"Podaj x y z"<<endl;
     int x,y,z;
     cin>>x>>y>>z;

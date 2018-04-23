@@ -5,7 +5,7 @@
 
 using namespace std;
 
-template <class Typ> /* konstruktor */
+template <class Typ> /* konstruktor, alokuje pamiec na trojwymiarowa tablice */
 Tensor<Typ>::Tensor(int x_max, int y_max, int z_max)
 {
     tab_tens = new Typ **[x_max];
@@ -22,7 +22,7 @@ Tensor<Typ>::Tensor(int x_max, int y_max, int z_max)
     z_size=z_max;
 }
 
-template <class Typ> /* konstruktor kopiujacy */
+template <class Typ> /* konstruktor kopiujacy, alokuje miejsce dla trojwymiarowej tablicy */
 Tensor<Typ>::Tensor(Tensor const &t)
 {
 	tab_tens = new Typ **[t.x_size];
@@ -52,9 +52,9 @@ Tensor<Typ>::~Tensor()
         for(int j=0; j<z_size; j++)
         { delete[] tab_tens[i][j]; }
 
-        delete tab_tens[i];
+        delete[] tab_tens[i];
     }
-    delete tab_tens;
+    delete[] tab_tens;
 }
 
 template <class Typ> /* odczytanie elementu o danych wspolrzednych */
@@ -66,9 +66,9 @@ void Tensor<Typ>::change(Typ nowy, int x, int y, int z)  /* zmienianie elementu 
 { tab_tens[x-1][y-1][z-1]=nowy; }
 
 template <class Typ>
-std::istream& operator>>(std::istream &is, Tensor<Typ>& t)
+std::istream& operator>>(std::istream &is, Tensor<Typ>& t) /* wczytywnie tensora */
 {
-    Typ pom;
+    Typ pom; /* zmienna pomocnicza odpowiedzialna za chwilowe przechowywanie wczytanego elementu */
     for(int i=0; i<t.x_size; i++)
     {
         for(int j=0; j<t.y_size; j++)
@@ -86,7 +86,7 @@ std::istream& operator>>(std::istream &is, Tensor<Typ>& t)
 }
 
 template <class Typ>
-std::ostream& operator<<(std::ostream &os, const Tensor<Typ> &t)
+std::ostream& operator<<(std::ostream &os, const Tensor<Typ> &t) /* wypisywanie tensora */
 {
     for(int i=0; i<t.x_size; i++)
     {
@@ -103,7 +103,7 @@ std::ostream& operator<<(std::ostream &os, const Tensor<Typ> &t)
 }
 
 template <class Typ>
-Tensor<Typ>& Tensor<Typ>::operator=(const Tensor &t)
+Tensor<Typ>& Tensor<Typ>::operator=(const Tensor &t) /* przypisanie tensora */
 {
     x_size=t.x_size;
     y_size=t.y_size;
@@ -130,18 +130,18 @@ Tensor<Typ>& Tensor<Typ>::operator=(const Tensor &t)
 }
 
 template <class Typ>
-Tensor<Typ> Tensor<Typ>::operator+(const Tensor &t) const
+Tensor<Typ> Tensor<Typ>::operator+(const Tensor &t) const /* dodawanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { cout<<"Tensory maja rozne rozmiary"<<endl; }
     else
     {
-        int x,y,z;
-        x=t.x_size;
+        int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
+        x=t.x_size; /* przypisanie rozmiarow x,y,z tensora */
         y=t.y_size;
         z=t.z_size;
 
-        Tensor<Typ> POM(x,y,z);
+        Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
 
         for(int i=0; i<x; i++)
         {
@@ -157,7 +157,7 @@ Tensor<Typ> Tensor<Typ>::operator+(const Tensor &t) const
 }
 
 template <class Typ>
-Tensor<Typ> Tensor<Typ>::operator+=(const Tensor<Typ> &t)
+Tensor<Typ> Tensor<Typ>::operator+=(const Tensor<Typ> &t) /* dodawanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { cout<<"Tensory maja rozne rozmiary"<<endl; }
@@ -177,18 +177,18 @@ Tensor<Typ> Tensor<Typ>::operator+=(const Tensor<Typ> &t)
 }
 
 template <class Typ>
-Tensor<Typ> Tensor<Typ>::operator-(const Tensor &t) const
+Tensor<Typ> Tensor<Typ>::operator-(const Tensor &t) const /* odejmowanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { cout<<"Tensory maja rozne rozmiary"<<endl; }
     else
     {
-        int x,y,z;
-        x=t.x_size;
+        int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
+        x=t.x_size; /* przypisanie rozmiarow x,y,z tensora */
         y=t.y_size;
         z=t.z_size;
 
-        Tensor<Typ> POM(x,y,z);
+        Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne roznice */
 
         for(int i=0; i<x; i++)
         {
@@ -204,7 +204,7 @@ Tensor<Typ> Tensor<Typ>::operator-(const Tensor &t) const
 }
 
 template <class Typ>
-Tensor<Typ> Tensor<Typ>::operator-=(const Tensor<Typ> &t)
+Tensor<Typ> Tensor<Typ>::operator-=(const Tensor<Typ> &t) /* odejmowanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { cout<<"Tensory maja rozne rozmiary"<<endl; }
@@ -224,18 +224,18 @@ Tensor<Typ> Tensor<Typ>::operator-=(const Tensor<Typ> &t)
 }
 
 template <class Typ>
-Tensor<Typ> Tensor<Typ>::operator*(const Tensor &t) const
+Tensor<Typ> Tensor<Typ>::operator*(const Tensor &t) const /* mnozenie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { cout<<"Tensory maja rozne rozmiary"<<endl; }
     else
     {
-        int x,y,z;
-        x=t.x_size;
+        int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
+        x=t.x_size; /* przypisanie rozmiarow x,y,z tensora */
         y=t.y_size;
         z=t.z_size;
 
-        Tensor<Typ> POM(x,y,z);
+        Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne ilorazy */
 
         for(int i=0; i<x; i++)
         {
@@ -251,7 +251,7 @@ Tensor<Typ> Tensor<Typ>::operator*(const Tensor &t) const
 }
 
 template <class Typ>
-Tensor<Typ> Tensor<Typ>::operator*=(const Tensor<Typ> &t)
+Tensor<Typ> Tensor<Typ>::operator*=(const Tensor<Typ> &t) /* mnozenie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { cout<<"Tensory maja rozne rozmiary"<<endl; }
@@ -271,13 +271,13 @@ Tensor<Typ> Tensor<Typ>::operator*=(const Tensor<Typ> &t)
 }
 
 template <class Typ>
-bool Tensor<Typ>::operator==(const Tensor &t) const
+bool Tensor<Typ>::operator==(const Tensor &t) const /* porownanie tensorow */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { return false; }
     else
     {
-        int licznik=0;
+        int licznik=0; /* zmienna zapisujaca wykryta roznice */
         for(int i=0; i<t.x_size && licznik==0; i++)
         {
             for(int j=0; j<t.y_size && licznik==0; j++)
@@ -285,7 +285,7 @@ bool Tensor<Typ>::operator==(const Tensor &t) const
                 for(int k=0; k<t.z_size && licznik==0; k++)
                 {
                     if( this->tab_tens[i][j][k]!=t.tab_tens[i][j][k] )
-                    { licznik++; }
+                    { licznik++; } /* jesli jakies elementy sa rozne zwieksz licznik */
                 }
             }
         }
@@ -298,13 +298,13 @@ bool Tensor<Typ>::operator==(const Tensor &t) const
 }
 
 template <class Typ>
-bool Tensor<Typ>::operator!=(const Tensor &t) const
+bool Tensor<Typ>::operator!=(const Tensor &t) const /* porownanie tensorow */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
     { return true; }
     else
     {
-        int licznik=0;
+        int licznik=0; /* zmienna zapisujaca wykryta roznice */
         for(int i=0; i<t.x_size && licznik==0; i++)
         {
             for(int j=0; j<t.y_size && licznik==0; j++)
@@ -312,7 +312,7 @@ bool Tensor<Typ>::operator!=(const Tensor &t) const
                 for(int k=0; k<t.z_size && licznik==0; k++)
                 {
                     if( this->tab_tens[i][j][k]!=t.tab_tens[i][j][k] )
-                    { licznik++; }
+                    { licznik++; } /* jesli jakies elementy sa rozne zwieksz licznik */
                 }
             }
         }
