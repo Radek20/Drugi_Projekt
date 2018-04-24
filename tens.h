@@ -132,17 +132,19 @@ Tensor<Typ>& Tensor<Typ>::operator=(const Tensor &t) /* przypisanie tensora */
 template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator+(const Tensor &t) const /* dodawanie tensorow element po elemencie */
 {
+    int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
+    x=this->x_size; /* przypisanie rozmiarow x,y,z tensora */
+    y=this->y_size;
+    z=this->z_size;
+    Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
+
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    { cout<<"Tensory maja rozne rozmiary"<<endl; }
+    {
+        cout<<"Tensory maja rozne rozmiary"<<endl;
+        return POM; /* zwroci tensor zerowy o wymiarach pierwszego tensora*/
+    }
     else
     {
-        int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
-        x=t.x_size; /* przypisanie rozmiarow x,y,z tensora */
-        y=t.y_size;
-        z=t.z_size;
-
-        Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
-
         for(int i=0; i<x; i++)
         {
             for(int j=0; j<y; j++)
@@ -160,7 +162,10 @@ template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator+=(const Tensor<Typ> &t) /* dodawanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    { cout<<"Tensory maja rozne rozmiary"<<endl; }
+    {
+        cout<<"Tensory maja rozne rozmiary"<<endl;
+        return * this; /* nie zmieni elementow tensora */
+    }
     else
     {
         for(int i=0; i<t.x_size; i++)
@@ -179,17 +184,19 @@ Tensor<Typ> Tensor<Typ>::operator+=(const Tensor<Typ> &t) /* dodawanie tensorow 
 template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator-(const Tensor &t) const /* odejmowanie tensorow element po elemencie */
 {
+    int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
+    x=this->x_size; /* przypisanie rozmiarow x,y,z tensora */
+    y=this->y_size;
+    z=this->z_size;
+    Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
+
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    { cout<<"Tensory maja rozne rozmiary"<<endl; }
+    {
+        cout<<"Tensory maja rozne rozmiary"<<endl;
+        return POM; /* zwroci tensor zerowy o wymiarach pierwszego tensora*/
+    }
     else
     {
-        int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
-        x=t.x_size; /* przypisanie rozmiarow x,y,z tensora */
-        y=t.y_size;
-        z=t.z_size;
-
-        Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne roznice */
-
         for(int i=0; i<x; i++)
         {
             for(int j=0; j<y; j++)
@@ -207,7 +214,10 @@ template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator-=(const Tensor<Typ> &t) /* odejmowanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    { cout<<"Tensory maja rozne rozmiary"<<endl; }
+    {
+        cout<<"Tensory maja rozne rozmiary"<<endl;
+        return * this; /* nie zmieni elementow tensora */
+    }
     else
     {
         for(int i=0; i<t.x_size; i++)
@@ -226,17 +236,19 @@ Tensor<Typ> Tensor<Typ>::operator-=(const Tensor<Typ> &t) /* odejmowanie tensoro
 template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator*(const Tensor &t) const /* mnozenie tensorow element po elemencie */
 {
+    int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
+    x=this->x_size; /* przypisanie rozmiarow x,y,z tensora */
+    y=this->y_size;
+    z=this->z_size;
+    Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
+
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    { cout<<"Tensory maja rozne rozmiary"<<endl; }
+    {
+        cout<<"Tensory maja rozne rozmiary"<<endl;
+        return POM; /* zwroci tensor zerowy o wymiarach pierwszego tensora*/
+    }
     else
     {
-        int x,y,z; /* pomocnicze zmienne przechowujace rozmiary tensora */
-        x=t.x_size; /* przypisanie rozmiarow x,y,z tensora */
-        y=t.y_size;
-        z=t.z_size;
-
-        Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne ilorazy */
-
         for(int i=0; i<x; i++)
         {
             for(int j=0; j<y; j++)
@@ -254,7 +266,10 @@ template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator*=(const Tensor<Typ> &t) /* mnozenie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    { cout<<"Tensory maja rozne rozmiary"<<endl; }
+    {
+        cout<<"Tensory maja rozne rozmiary"<<endl;
+        return * this; /* nie zmieni elementow tensora */
+    }
     else
     {
         for(int i=0; i<t.x_size; i++)

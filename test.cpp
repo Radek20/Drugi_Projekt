@@ -39,6 +39,11 @@ void test()
     else
        { cout<<"test_6: FAIL"<<endl; }
 
+    if(test_7())
+       { cout<<endl<<"test_7: PASS"<<endl; }
+    else
+       { cout<<endl<<"test_7: FAIL"<<endl; }
+
     cout<<endl<<"PRZYKLAD:"<<endl;
     example();
 }
@@ -527,6 +532,67 @@ bool test_6()
 
     A-=B;
     if(A!=Wynik_ode)
+       { return false; }
+
+    if(A==B)
+       { return false; }
+    else
+       { return true; }
+}
+
+bool test_7()
+{
+    /* TEST DZIALAN NA TENSORACH ROZNYCH ROZMIAROW */
+    cout<<endl;
+    Tensor<int> A(3,1,1);  /* tensor testowy */
+    Tensor<int> B(3,2,1);  /* tensor testowy */
+    Tensor<int> C(3,1,1);  /* pomocniczy tensor testowy */
+    Tensor<int> Wynik(3,1,1);  /* pomocniczy tensor zerowy */
+
+    /* elementy pierwszego tensora */
+    int element_1_1=2, element_2_1=0, element_3_1=3;
+    /* elementy drugiego tensora */
+    int element_1_2=2, element_2_2=5, element_3_2=0;
+    int element_4_2=1, element_5_2=3, element_6_2=6;
+    /* WPISYWANIE WARTOSCI TENSORA A */
+    A.change(element_1_1 ,1,1,1);
+    A.change(element_2_1 ,2,1,1);
+    A.change(element_3_1 ,3,1,1);
+    /* WPISYWANIE WARTOSCI TENSORA B */
+    B.change(element_1_2 ,1,1,1);
+    B.change(element_2_2 ,1,2,1);
+    B.change(element_3_2 ,2,1,1);
+    B.change(element_4_2 ,2,2,1);
+    B.change(element_5_2 ,3,1,1);
+    B.change(element_6_2 ,3,2,1);
+
+    if(A.show(1,1,1)!=element_1_1)
+       { return false; }
+    if(B.show(2,1,1)!=element_3_2)
+       { return false; }
+
+    C=A+B;
+    if(C!=Wynik)
+       { return false; }
+
+    C=A-B;
+    if(C!=Wynik)
+       { return false; }
+
+    C=A*B;
+    if(C!=Wynik)
+       { return false; }
+
+    A+=B;
+    if(A!=A)
+       { return false; }
+
+    A-=B;
+    if(A!=A)
+       { return false; }
+
+    A*=B;
+    if(A!=A)
        { return false; }
 
     if(A==B)
