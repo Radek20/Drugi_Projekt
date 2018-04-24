@@ -139,10 +139,7 @@ Tensor<Typ> Tensor<Typ>::operator+(const Tensor &t) const /* dodawanie tensorow 
     Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
 
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    {
-        cout<<"Tensory maja rozne rozmiary"<<endl;
-        return POM; /* zwroci tensor zerowy o wymiarach pierwszego tensora*/
-    }
+    { throw 1; }
     else
     {
         for(int i=0; i<x; i++)
@@ -162,10 +159,7 @@ template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator+=(const Tensor<Typ> &t) /* dodawanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    {
-        cout<<"Tensory maja rozne rozmiary"<<endl;
-        return * this; /* nie zmieni elementow tensora */
-    }
+    { throw 1; }
     else
     {
         for(int i=0; i<t.x_size; i++)
@@ -191,10 +185,7 @@ Tensor<Typ> Tensor<Typ>::operator-(const Tensor &t) const /* odejmowanie tensoro
     Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
 
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    {
-        cout<<"Tensory maja rozne rozmiary"<<endl;
-        return POM; /* zwroci tensor zerowy o wymiarach pierwszego tensora*/
-    }
+    { throw 1; }
     else
     {
         for(int i=0; i<x; i++)
@@ -214,10 +205,7 @@ template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator-=(const Tensor<Typ> &t) /* odejmowanie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    {
-        cout<<"Tensory maja rozne rozmiary"<<endl;
-        return * this; /* nie zmieni elementow tensora */
-    }
+    { throw 1; }
     else
     {
         for(int i=0; i<t.x_size; i++)
@@ -243,10 +231,7 @@ Tensor<Typ> Tensor<Typ>::operator*(const Tensor &t) const /* mnozenie tensorow e
     Tensor<Typ> POM(x,y,z); /* pomocniczy obiekt w ktorym zapisywane sa poszczegolne sumy */
 
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    {
-        cout<<"Tensory maja rozne rozmiary"<<endl;
-        return POM; /* zwroci tensor zerowy o wymiarach pierwszego tensora*/
-    }
+    { throw 1; }
     else
     {
         for(int i=0; i<x; i++)
@@ -266,10 +251,7 @@ template <class Typ>
 Tensor<Typ> Tensor<Typ>::operator*=(const Tensor<Typ> &t) /* mnozenie tensorow element po elemencie */
 {
     if( this->x_size!=t.x_size || this->y_size!=t.y_size || this->z_size!=t.z_size )
-    {
-        cout<<"Tensory maja rozne rozmiary"<<endl;
-        return * this; /* nie zmieni elementow tensora */
-    }
+    { throw 1; }
     else
     {
         for(int i=0; i<t.x_size; i++)

@@ -549,6 +549,8 @@ bool test_7()
     Tensor<int> C(3,1,1);  /* pomocniczy tensor testowy */
     Tensor<int> Wynik(3,1,1);  /* pomocniczy tensor zerowy */
 
+    int ilosc_bledow=0; /* zmienna liczaca ilosc bledow */
+
     /* elementy pierwszego tensora */
     int element_1_1=2, element_2_1=0, element_3_1=3;
     /* elementy drugiego tensora */
@@ -571,34 +573,49 @@ bool test_7()
     if(B.show(2,1,1)!=element_3_2)
        { return false; }
 
-    C=A+B;
-    if(C!=Wynik)
-       { return false; }
+    /* TEST DODAWANIA */
+    try
+    { A+B; }
 
-    C=A-B;
-    if(C!=Wynik)
-       { return false; }
+    catch(int error_n)
+    {
+        if(error_n==1)
+	{
+	    cout<<"ERROR "<<error_n<<": "<<"Tensory sa roznych rozmiarow"<<endl;
+	    ilosc_bledow++;
+        }
+    }
 
-    C=A*B;
-    if(C!=Wynik)
-       { return false; }
+    /* TEST ODEJMOWANIA */
+    try
+    { A-B; }
 
-    A+=B;
-    if(A!=A)
-       { return false; }
+    catch(int error_n)
+    {
+        if(error_n==1)
+	{
+	    cout<<"ERROR "<<error_n<<": "<<"Tensory sa roznych rozmiarow"<<endl;
+	    ilosc_bledow++;
+        }
+    }
 
-    A-=B;
-    if(A!=A)
-       { return false; }
+    /* TEST MNOZENIA */
+    try
+    { A+B; }
 
-    A*=B;
-    if(A!=A)
-       { return false; }
+    catch(int error_n)
+    {
+        if(error_n==1)
+	{
+	    cout<<"ERROR "<<error_n<<": "<<"Tensory sa roznych rozmiarow"<<endl;
+	    ilosc_bledow++;
+        }
+    }
 
-    if(A==B)
-       { return false; }
+    if(ilosc_bledow==3)
+    { return true; }
     else
-       { return true; }
+    { return false; }
 }
 
 void example()
